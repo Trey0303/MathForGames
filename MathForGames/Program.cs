@@ -5,7 +5,6 @@ namespace MathForGames
 {
     class Program
     {
-        //work please
         //𝑓(𝑥) = 𝑥^2 + 2𝑥 – 7
         static float BasicQuadratic(float x)
         {
