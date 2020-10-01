@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace MathForGames
+{
+    class trigonometry
+    {
+        static double Degrees(double x)
+        {
+            return (x / 180) * Math.PI;
+        }
+
+        static double Radians(double x)
+        {
+            return (x / Math.PI) * 180;
+        }
+    }
+}
