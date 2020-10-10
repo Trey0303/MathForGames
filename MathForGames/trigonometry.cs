@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathForGames
 {
-    class trigonometry
+    class Trigonometry
     {
         static double Degrees(double x)
         {
