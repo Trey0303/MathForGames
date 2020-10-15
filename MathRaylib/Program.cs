@@ -9,6 +9,21 @@ namespace MathRaylib
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            Game game = new Game();
+            SetTargetFPS(60);
+            InitWindow(640, 480, "Tanks for Everything!");
+            game.Init();
+            while (!WindowShouldClose())
+            {
+                game.Update();
+                game.Draw();
+            }
+            game.Shutdown();
+            CloseWindow();
+        }
+
         public static int Main()
         {
             // Initialization

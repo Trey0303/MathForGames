@@ -16,12 +16,12 @@ namespace MathForGames
             m7 = 0; m8 = 0; m9 = 1;
         }
 
-        public void SetScaled(Vector3 v)
-        {
-            m1 = v.x; m2 = 0; m3 = 0;
-            m4 = 0; m5 = v.y; m6 = 0;
-            m7 = 0; m8 = 0; m9 = v.z;
-        }
+        //public void SetScaled(Vector3 v)
+        //{
+        //    m1 = v.x; m2 = 0; m3 = 0;
+        //    m4 = 0; m5 = v.y; m6 = 0;
+        //    m7 = 0; m8 = 0; m9 = v.z;
+        //}
 
         public void SetScaled(float x, float y, float z)
         {
@@ -30,12 +30,12 @@ namespace MathForGames
             m7 = 0; m8 = 0; m9 = z;
         }
 
-        //void Scale(Vector3 v)
-        //{
-        //    Matrix3 m = new Matrix3();
-        //    m.SetScaled(v.x, v.y, v.z);
-        //    Set(this * m);
-        //}
+        void Scale(Vector3 v)
+        {
+            Matrix3 m = new Matrix3();
+            m.SetScaled(v.x, v.y, v.z);
+            Set(this * m);
+        }
 
         //public void Scale(float x, float y, float z)
         //{
@@ -44,16 +44,16 @@ namespace MathForGames
         //    Set(this * m);
         //}
 
-        public void Set(Matrix3 m)
-        {
-            //update the values of the matrix to the values of the input matrix.
-        }
+        //public void Set(Matrix3 m)
+        //{
+        //    //update the values of the matrix to the values of the input matrix.
+        //}
 
         public void SetRotateX(double radians)
         {
-            //Set(1, 0, 0,
-            //    0, (float)Math.Cos(radians), (float)Math.Sin(radians),
-            //    0, (float)-Math.Sin(radians), (float)Math.Cos(radians));
+            Set(1, 0, 0,
+                0, (float)Math.Cos(radians), (float)Math.Sin(radians),
+                0, (float)-Math.Sin(radians), (float)Math.Cos(radians));
         }
 
         private void SetRotateZ(double radians)
@@ -66,24 +66,24 @@ namespace MathForGames
 
         }
 
-        //public void RotateX(double radians)
-        //{
-        //    Matrix3 m = new Matrix3();
-        //    m.SetRotateX(radians);
-        //    Set(this * m);
-        //}
+        public void RotateX(double radians)
+        {
+            Matrix3 m = new Matrix3();
+            m.SetRotateX(radians);
+            Set(this * m);
+        }
 
-        //void SetEuler(float pitch, float yaw, float roll)
-        //{
-        //    Matrix3 x = new Matrix3();
-        //    Matrix3 y = new Matrix3();
-        //    Matrix3 z = new Matrix3();
-        //    x.SetRotateX(pitch);
-        //    y.SetRotateY(yaw);
-        //    z.SetRotateZ(roll);
-        //    // combine rotations in a specific order
-        //    Set(z * y * x);
-        //}
+        void SetEuler(float pitch, float yaw, float roll)
+        {
+            Matrix3 x = new Matrix3();
+            Matrix3 y = new Matrix3();
+            Matrix3 z = new Matrix3();
+            x.SetRotateX(pitch);
+            y.SetRotateY(yaw);
+            z.SetRotateZ(roll);
+            // combine rotations in a specific order
+            Set(z * y * x);
+        }
 
         //Matrix3 GetTransposed()
         //{

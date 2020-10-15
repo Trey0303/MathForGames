@@ -14,40 +14,36 @@ namespace MathForGames
         const byte ROCKET_LAUNCHER = 0x01 << 5;
         const byte PLASMA_GUN = 0x01 << 6;
         const byte BFG9000 = 0x01 << 7;
-        //static void Main(string[] args)
-        //{
-        //    byte inventory = 0;
-        //    inventory |= PLASMA_GUN;
-        //    inventory |= PISTOL;
-        //    inventory |= CHAINSAW;
-        //    PrintInventory(inventory);
-        //    Console.ReadLine();
-        //}
+        public static readonly string[] weapons = {
+                 "Fists", "Chainsaw", "Pistol", "Shotgun", "Super Shotgun", "Chaingun",
+                 "Rocket Launcher", "Plasma Gun", "BFG 9000"
+        };
+        static void Main(string[] args)
+        {
+            byte inventory = 0;
+            inventory |= PLASMA_GUN;
+            inventory |= PISTOL;
+            inventory |= CHAINSAW;
+            PrintInventory(inventory);
+            Console.ReadLine();
+        }
         public static void AddToInventory(ref byte inventory, byte weapon)
         {
             inventory |= weapon;
         }
         public static void PrintInventory(byte inventory)
         {
-            Console.Write("Fists | ");
-            if ((inventory & CHAINSAW) == CHAINSAW)
-                Console.Write("Chainsaw | ");
-            if ((inventory & PISTOL) == PISTOL)
-                Console.Write("Pistol | ");
-            if ((inventory & SHOTGUN) == SHOTGUN)
-                Console.Write("Shotgun | ");
-            if ((inventory & SUPER_SHOTGUN) == SUPER_SHOTGUN)
-                Console.Write("Super Shotgun | ");
-            if ((inventory & CHAINGUN) == CHAINGUN)
-                Console.Write("Chaingun | ");
-            if ((inventory & ROCKET_LAUNCHER) == ROCKET_LAUNCHER)
-                Console.Write("Rocket Launcher | ");
-            if ((inventory & PLASMA_GUN) == PLASMA_GUN)
-                Console.Write("Plasma Gun | ");
-            if ((inventory & BFG9000) == BFG9000)
-                Console.Write("BFG 9000 | ");
+            Console.Write("{0} | ", weapons[0]);
+            for (int i = 1; i < weapons.Length; i++)
+            {
+                int mask = 0x01 << i - 1;
+                if ((inventory & mask) == mask)
+                {
+                    Console.Write("{0} | ", weapons[i]);
+                }
+            }
             Console.Write("\n");
         }
-
     }
+
 }
