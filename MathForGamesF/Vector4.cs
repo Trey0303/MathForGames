@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathForGamesF
 {
-    public class Vector4
+    class Vector4
     {
         public float x, y, z, w;
 

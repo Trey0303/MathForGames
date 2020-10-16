@@ -2,24 +2,31 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MathForGames
+namespace MathForGamesF
 {
+
     public class Game
     {
-        Timer stopwatch = new Timer();
+        Stopwatch stopwatch = new Stopwatch();
         private long currentTime = 0;
         private long lastTime = 0;
         private float timer = 0;
         private int fps = 1;
         private int frames;
         private float deltaTime = 0.005f;
+        
         public static void Init()
         {
             stopwatch.Start();
             lastTime = stopwatch.ElapsedMilliseconds;
         }
         public static void Shutdown()
-        { }
+        {
+            stopwatch.Reset();
+        }
+
+        
+
         public static void Update()
         {
             currentTime = stopwatch.ElapsedMilliseconds;

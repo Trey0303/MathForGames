@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-
 namespace MathForGamesF
 {
-    public class Matrix3
+    class Matrix3
     {
         //public readonly static Matrix3 identity = new Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
         public float m1, m2, m3, m4, m5, m6, m7, m8, m9;
@@ -43,12 +42,12 @@ namespace MathForGamesF
                 0, (float)-Math.Sin(radians), (float)Math.Cos(radians));
         }
 
-        public void SetRotateZ(double radians)
+        private void SetRotateZ(double radians)
         {
 
         }
 
-        public void SetRotateY(double radians)
+        private void SetRotateY(double radians)
         {
 
         }

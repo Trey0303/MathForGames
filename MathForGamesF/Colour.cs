@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathForGamesF
 {
-    public class Colour
+    class Colour
     {
         public UInt32 colour;
         public Colour()

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MathForGames
+namespace MathForGamesF
 {
-    class Image
+    class Texture2D
     {
     }
 }

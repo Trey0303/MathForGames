@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Text;
 
 namespace MathForGamesF
@@ -13,9 +11,7 @@ namespace MathForGamesF
         // default constructor (no parameters)
         public Vector3()
         {
-            x = 0;
-            y = 0;
-            z = 0;
+
         }
 
         // parameterized constructor - the two float values will initialized
@@ -117,17 +113,6 @@ namespace MathForGamesF
                                            lhs.z / scalar);
 
             return scaled;
-        }
-
-        //my math to system
-        public static implicit operator System.Numerics.Vector3(Vector3 source)
-        {
-            return new System.Numerics.Vector3(source.x, source.y, source.z);
-        }
-        //system to my math
-        public static implicit operator Vector3(System.Numerics.Vector3 source)
-        {
-            return new Vector3(source.X, source.Y, source.Z);
         }
     }
 }
