@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static Raylib_cs.Raylib;  // core methods (InitWindow, BeginDrawing())
+using static Raylib_cs.Color;   // color (RAYWHITE, MAROON, etc.)
+using MathForGames;
 
 namespace MathForGames
 {

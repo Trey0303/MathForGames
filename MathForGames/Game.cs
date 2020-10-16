@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathForGames
 {
-    class Game
+    public class Game
     {
         Stopwatch stopwatch = new Stopwatch();
         private long currentTime = 0;

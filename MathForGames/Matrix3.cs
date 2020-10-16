@@ -16,13 +16,6 @@ namespace MathForGames
             m7 = 0; m8 = 0; m9 = 1;
         }
 
-        //public void SetScaled(Vector3 v)
-        //{
-        //    m1 = v.x; m2 = 0; m3 = 0;
-        //    m4 = 0; m5 = v.y; m6 = 0;
-        //    m7 = 0; m8 = 0; m9 = v.z;
-        //}
-
         public void SetScaled(float x, float y, float z)
         {
             m1 = x; m2 = 0; m3 = 0;
@@ -30,24 +23,17 @@ namespace MathForGames
             m7 = 0; m8 = 0; m9 = z;
         }
 
-        void Scale(Vector3 v)
+        public void Scale(float x, float y, float z)
         {
             Matrix3 m = new Matrix3();
-            m.SetScaled(v.x, v.y, v.z);
+            m.SetScaled(x, y, z);
             Set(this * m);
         }
 
-        //public void Scale(float x, float y, float z)
-        //{
-        //    Matrix3 m = new Matrix3();
-        //    m.SetScaled(x, y, z);
-        //    Set(this * m);
-        //}
-
-        //public void Set(Matrix3 m)
-        //{
-        //    //update the values of the matrix to the values of the input matrix.
-        //}
+        public void Set(Matrix3 m)
+        {
+            //update the values of the matrix to the values of the input matrix.
+        }
 
         public void SetRotateX(double radians)
         {
