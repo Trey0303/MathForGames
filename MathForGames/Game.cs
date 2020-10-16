@@ -6,7 +6,7 @@ namespace MathForGames
 {
     public class Game
     {
-        Stopwatch stopwatch = new Stopwatch();
+        Timer stopwatch = new Timer();
         private long currentTime = 0;
         private long lastTime = 0;
         private float timer = 0;

@@ -9,23 +9,10 @@ namespace MathRaylib
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            Game game = new Game();
-            SetTargetFPS(60);
-            InitWindow(640, 480, "Tanks for Everything!");
-            game.Init();
-            while (!WindowShouldClose())
-            {
-                game.Update();
-                game.Draw();
-            }
-            game.Shutdown();
-            CloseWindow();
-        }
 
         public static int Main()
         {
+            Game game = new Game();
             // Initialization
             //--------------------------------------------------------------------------------------
             const int screenWidth = 800;
@@ -35,6 +22,7 @@ namespace MathRaylib
 
             SetTargetFPS(60);
             //--------------------------------------------------------------------------------------
+            Timer t = new Timer();
 
             // Main game loop
             while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -44,12 +32,21 @@ namespace MathRaylib
                 // TODO: Update your variables here
                 //----------------------------------------------------------------------------------
 
+                t.Update();
+
                 // Draw
                 //----------------------------------------------------------------------------------
                 BeginDrawing();
 
                 ClearBackground(RAYWHITE);
 
+                game.Update();
+                game.Draw();
+                SetTargetFPS(60);
+                InitWindow(640, 480, "Tanks for Everything!");
+                game.Init();
+                DrawText("time Since Start: " + GetTime().ToString("0.0"), 25, 25, 20, RED);
+                DrawText("Delta Time: " + t.deltaTime.ToString("0.0000"), 25, 50, 20, RED);
                 DrawText("Congrats! You created your first window!", 190, 200, 20, MAROON);
 
                 EndDrawing();
@@ -58,6 +55,7 @@ namespace MathRaylib
 
             // De-Initialization
             //--------------------------------------------------------------------------------------
+            game.Shutdown();
             CloseWindow();        // Close window and OpenGL context
             //--------------------------------------------------------------------------------------
 
