@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace MathForGamesF
+namespace MathClasses
 {
     class Program
     {

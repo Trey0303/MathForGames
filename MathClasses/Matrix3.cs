@@ -4,7 +4,7 @@ using System.Numerics;
 using System.Text;
 
 
-namespace MathForGamesF
+namespace MathClasses
 {
     public class Matrix3
     {
@@ -17,12 +17,26 @@ namespace MathForGamesF
             m7 = 0; m8 = 0; m9 = 1;
         }
 
+        public Matrix3(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9)
+        {
+            m1 = a1;
+            m2 = a2;
+            m3 = a3;
+            m4 = a4;
+            m5 = a5;
+            m6 = a6;
+            m7 = a7;
+            m8 = a8;
+            m9 = a9;
+        }
+
         public void SetScaled(float x, float y, float z)
         {
             m1 = x; m2 = 0; m3 = 0;
             m4 = 0; m5 = y; m6 = 0;
             m7 = 0; m8 = 0; m9 = z;
         }
+
 
         public void Scale(float x, float y, float z)
         {
@@ -34,6 +48,26 @@ namespace MathForGamesF
         public void Set(Matrix3 m)
         {
             //update the values of the matrix to the values of the input matrix.
+            //Matrix3 result = new Matrix3();
+            
+
+            //return result;
+        }
+        public void Set(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9)
+        {
+            //update the values of the matrix to the values of the input matrix.
+            //Matrix3 result = new Matrix3();
+            m1 = a1;
+            m2 = a2;
+            m3 = a3;
+            m4 = a4;
+            m5 = a5;
+            m6 = a6;
+            m7 = a7;
+            m8 = a8;
+            m9 = a9;
+
+            //return result;
         }
 
         public void SetRotateX(double radians)
@@ -43,15 +77,20 @@ namespace MathForGamesF
                 0, (float)-Math.Sin(radians), (float)Math.Cos(radians));
         }
 
-        public void SetRotateZ(double radians)
-        {
-
-        }
-
         public void SetRotateY(double radians)
         {
-
+            Set((float)Math.Cos(radians), 0, (float)Math.Sin(radians),
+                0, 1, 0,
+                (float)-Math.Sin(radians), 0, (float)Math.Cos(radians));
         }
+        public void SetRotateZ(double radians)
+        {
+            Set((float)Math.Cos(radians), (float)Math.Sin(radians), 0,
+               (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
+               0, 0, 1);
+        }
+
+        
 
         public void RotateX(double radians)
         {
@@ -62,11 +101,15 @@ namespace MathForGamesF
 
         public void RotateY(double radians)
         {
-
+            Matrix3 m = new Matrix3();
+            m.SetRotateY(radians);
+            Set(this * m);
         }
         public void Rotatez(double radians)
         {
-
+            Matrix3 m = new Matrix3();
+            m.SetRotateZ(radians);
+            Set(this * m);
         }
 
         void SetEuler(float pitch, float yaw, float roll)
@@ -96,12 +139,27 @@ namespace MathForGamesF
                                (lhs.m3 * rhs.x) + (lhs.m6 * rhs.y) + (lhs.m9 * rhs.z));
         }
 
-        //public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
-        //{
-        //    return new Matrix3(
-        //     lhs.m1 * rhs.m1 + lhs.m4 * rhs.m2 + lhs.m7 * rhs.m3,
-        //     lhs.m2 * rhs.m4 + lhs.m5 * rhs.m5 + lhs.m8 * rhs.m6,
-        //     lhs.m3 * rhs.m7 + lhs.m6 * rhs.m8 + lhs.m9 * rhs.m9);
-        //}
+        public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
+        {
+            return new Matrix3(
+            //m11
+             lhs.m1 * rhs.m1 + lhs.m4 * rhs.m2 + lhs.m7 * rhs.m3,
+             //m12
+             lhs.m2 * rhs.m1 + lhs.m5 * rhs.m2 + lhs.m8 * rhs.m3,
+             //m13
+             lhs.m3 * rhs.m1 + lhs.m6 * rhs.m2 + lhs.m9 * rhs.m3,
+             //m21
+             lhs.m1 * rhs.m4 + lhs.m4 * rhs.m5 + lhs.m7 * rhs.m6,
+             //m22
+             lhs.m2 * rhs.m4 + lhs.m5 * rhs.m5 + lhs.m8 * rhs.m6,
+             //m23
+             lhs.m7 * rhs.m4 + lhs.m8 * rhs.m5 + lhs.m9 * rhs.m6,
+             //m31
+             lhs.m1 * rhs.m7 + lhs.m4 * rhs.m8 + lhs.m7 * rhs.m9,
+             //m32
+             lhs.m2 * rhs.m7 + lhs.m5 * rhs.m8 + lhs.m8 * rhs.m9,
+             //m33
+             lhs.m3 * rhs.m7 + lhs.m6 * rhs.m8 + lhs.m9 * rhs.m9 ); ;
+        }
     }
 }

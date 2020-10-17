@@ -5,7 +5,7 @@ using System.Threading;
 using System.Transactions;
 using static Raylib_cs.Raylib;
 
-namespace MathForGamesF
+namespace MathClasses
 {
     public class Timer
     {
@@ -18,10 +18,7 @@ namespace MathForGamesF
         {
             stopwatch.Start();
         }
-        public void Restart()
-        {
-            stopwatch.Restart();
-        }
+
         public float Seconds
         {
             get { return stopwatch.ElapsedMilliseconds / 1000.0f; }

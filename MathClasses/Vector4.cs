@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MathForGamesF
+namespace MathClasses
 {
-    class Vector4
+    public class Vector4
     {
         public float x, y, z, w;
 

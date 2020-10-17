@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Numerics;
 using System.Text;
 
-namespace MathForGamesF
+namespace MathClasses
 {
     
 

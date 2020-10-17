@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static Raylib_cs.Raylib;  // core methods (InitWindow, BeginDrawing())
+using static Raylib_cs.Color;
 
-namespace MathForGamesF
+namespace MathClasses
 {
 
     public class Game
@@ -15,19 +17,19 @@ namespace MathForGamesF
         private int frames;
         private float deltaTime = 0.005f;
         
-        public static void Init()
+        public void Init()
         {
             stopwatch.Start();
             lastTime = stopwatch.ElapsedMilliseconds;
         }
-        public static void Shutdown()
+        public void Shutdown()
         {
             stopwatch.Reset();
         }
 
         
 
-        public static void Update()
+        public void Update()
         {
             currentTime = stopwatch.ElapsedMilliseconds;
             deltaTime = (currentTime - lastTime) / 1000.0f;
@@ -41,11 +43,11 @@ namespace MathForGamesF
             frames++;
             lastTime = currentTime;
         }
-        public static void Draw()
+        public void Draw()
         {
             BeginDrawing();
-            ClearBackground(Color.WHITE);
-            DrawText(fps.ToString(), 10, 10, 12, Color.RED);
+            ClearBackground(WHITE);
+            DrawText(fps.ToString(), 10, 10, 12, RED);
 
             EndDrawing();
         }

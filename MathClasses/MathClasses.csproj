@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D3B6279-4A19-4853-BA3A-F42F88CDED84}</ProjectGuid>
+    <ProjectGuid>{4A3E2E7A-D62A-4845-8485-816ADB316641}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MathForGamesF</RootNamespace>
-    <AssemblyName>MathForGamesF</AssemblyName>
+    <RootNamespace>MathClasses</RootNamespace>
+    <AssemblyName>MathClasses</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,7 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="binary.cs" />
+    <Compile Include="Colour.cs" />
+    <Compile Include="MagnitudeAndNormalisation.cs" />
+    <Compile Include="MathFunctions.cs" />
+    <Compile Include="Matrix3.cs" />
+    <Compile Include="Matrix4.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trigonometry.cs" />
+    <Compile Include="Vector2.cs" />
+    <Compile Include="Vector3.cs" />
+    <Compile Include="Vector4.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

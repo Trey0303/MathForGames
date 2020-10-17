@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Text;
 
 
-namespace MathForGamesF
+namespace MathClasses
 {
     class SceneObject
     {

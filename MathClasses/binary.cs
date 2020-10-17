@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MathForGamesF
+namespace MathClasses
 {
     class binary
     {
@@ -18,15 +18,15 @@ namespace MathForGamesF
                  "Fists", "Chainsaw", "Pistol", "Shotgun", "Super Shotgun", "Chaingun",
                  "Rocket Launcher", "Plasma Gun", "BFG 9000"
         };
-        static void Main(string[] args)
-        {
-            byte inventory = 0;
-            inventory |= PLASMA_GUN;
-            inventory |= PISTOL;
-            inventory |= CHAINSAW;
-            PrintInventory(inventory);
-            Console.ReadLine();
-        }
+        //static void Main(string[] args)
+        //{
+        //    byte inventory = 0;
+        //    inventory |= PLASMA_GUN;
+        //    inventory |= PISTOL;
+        //    inventory |= CHAINSAW;
+        //    PrintInventory(inventory);
+        //    Console.ReadLine();
+        //}
         public static void AddToInventory(ref byte inventory, byte weapon)
         {
             inventory |= weapon;

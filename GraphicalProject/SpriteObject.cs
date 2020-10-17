@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using static Raylib_cs.Raylib;  // core methods (InitWindow, BeginDrawing())
 using static Raylib_cs.Color;   // color (RAYWHITE, MAROON, etc.)
-using MathForGamesF;
+using MathClasses;
 
-namespace MathForGamesF
+namespace MathClasses
 {
     class SpriteObject : SceneObject
     {
@@ -33,9 +33,9 @@ namespace MathForGamesF
            globalTransform.m2, globalTransform.m1);
             Raylib.Raylib.DrawTextureEx(
             texture,
-            new Vector2(globalTransform.m7, globalTransform.m8),
+            new Vector3(globalTransform.m7, globalTransform.m8, globalTransform.m9),
             rotation * (float)(180.0f / Math.PI),
-            1, Color.WHITE);
+            1, WHITE);
         }
     }
 }
