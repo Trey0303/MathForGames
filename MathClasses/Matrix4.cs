@@ -31,6 +31,39 @@ namespace MathClasses
             m13 = 0; m14 = 0; m15 = 0; m16 = 1;
         }
 
+        public void Set(Matrix4 m)
+        {
+            //update the values of the matrix to the values of the input matrix.
+            //Matrix3 result = new Matrix3();
+
+
+            //return result;
+        }
+        public void Set(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9, float a10,
+            float a11, float a12, float a13, float a14, float a15, float a16)
+        {
+            //update the values of the matrix to the values of the input matrix.
+            //Matrix3 result = new Matrix3();
+            m1 = a1;
+            m2 = a2;
+            m3 = a3;
+            m4 = a4;
+            m5 = a5;
+            m6 = a6;
+            m7 = a7;
+            m8 = a8;
+            m9 = a9;
+            m10 = a10;
+            m11 = a11;
+            m12 = a12;
+            m13 = a13;
+            m14 = a14;
+            m15 = a15;
+            m16 = a16;
+
+            //return result;
+        }
+
         public void SetRotateX(double radians)
         {
             Set(
