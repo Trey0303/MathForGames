@@ -89,9 +89,6 @@ namespace MathClasses
                (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
                0, 0, 1);
         }
-
-        
-
         public void RotateX(double radians)
         {
             Matrix3 m = new Matrix3();
@@ -105,14 +102,14 @@ namespace MathClasses
             m.SetRotateY(radians);
             Set(this * m);
         }
-        public void Rotatez(double radians)
+        public void RotateZ(double radians)
         {
             Matrix3 m = new Matrix3();
             m.SetRotateZ(radians);
             Set(this * m);
         }
 
-        void SetEuler(float pitch, float yaw, float roll)
+        public void SetEuler(float pitch, float yaw, float roll)
         {
             Matrix3 x = new Matrix3();
             Matrix3 y = new Matrix3();
@@ -124,13 +121,24 @@ namespace MathClasses
             Set(z * y * x);
         }
 
-        //Matrix3 GetTransposed()
-        //{
-        //    // flip row and column
-        //   //return new Matrix3(m1, m4, m7,
-        //   //                   m2, m5, m8,
-        //   //                   m3, m6, m9);
-        //}
+        Matrix3 GetTransposed()
+        {
+            //flip row and column
+            return new Matrix3(m1, m4, m7,
+                               m2, m5, m8,
+                               m3, m6, m9);
+        }
+
+        public void SetTranslation(float x, float y)
+        {
+            m3 = x; m6 = y; m9 = 1;
+        }
+
+        public void Translate(float x, float y)
+        {
+            // apply vector offset
+            m3 += x; m6 += y;
+        }
 
         public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
         {
