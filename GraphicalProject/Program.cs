@@ -49,7 +49,7 @@ namespace GraphicalProject
             Timer t = new Timer();
 
             //Vector3 myColor = ColorToHSV(BLUE);
-            //Color rayColor = ColorFromHSV(myColor);
+            //Colour rayColor = ColorFromHSV(myColor);
 
             // Main game loop
             while (!WindowShouldClose())    // Detect window close button or ESC key
