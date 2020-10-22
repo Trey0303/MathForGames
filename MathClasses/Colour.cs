@@ -13,10 +13,7 @@ namespace MathClasses
         }
         public Colour(byte red, byte green, byte blue, byte alpha)
         {
-            //colour = red;
-            //colour = green;
-            //colour = blue;
-            //colour = alpha;
+
         }
         public byte GetRed()
         {

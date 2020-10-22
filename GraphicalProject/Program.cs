@@ -44,10 +44,13 @@ namespace GraphicalProject
             InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
             SetTargetFPS(60);
+            
             //--------------------------------------------------------------------------------------
             //create new timer
-            Timer t = new Timer();
+            //Timer t = new Timer();
 
+            InitWindow(640, 480, "Tanks for Everything!");
+            game.Init();
             //Vector3 myColor = ColorToHSV(BLUE);
             //Colour rayColor = ColorFromHSV(myColor);
 
@@ -63,28 +66,25 @@ namespace GraphicalProject
 
                 // Draw
                 //----------------------------------------------------------------------------------
-                BeginDrawing();
+                //BeginDrawing();
 
                 ClearBackground(RAYWHITE);
 
                 game.Update();
                 game.Draw();
-                SetTargetFPS(60);
-                InitWindow(640, 480, "Tanks for Everything!");
-                game.Init();
+                
                 //DrawText("time Since Start: " + GetTime().ToString("0.0"), 25, 25, 20, RED);
                 //DrawText("Delta Time: " + t.deltaTime.ToString("0.0000"), 25, 50, 20, RED);
 
-                DrawText("Congrats! You created your first window!", 190, 200, 20, MAROON);
+                //DrawText("Congrats! You created your first window!", 190, 200, 20, MAROON);
 
-                EndDrawing();
+                //EndDrawing();
                 //----------------------------------------------------------------------------------
             }
 
             // De-Initialization
             //--------------------------------------------------------------------------------------
-            //game.Shutdown();
-
+            game.Shutdown();
             CloseWindow();        // Close window and OpenGL context
                                   //--------------------------------------------------------------------------------------
 

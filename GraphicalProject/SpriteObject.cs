@@ -4,6 +4,7 @@ using System.Text;
 using static Raylib_cs.Raylib;  // core methods (InitWindow, BeginDrawing())
 using static Raylib_cs.Color;   // color (RAYWHITE, MAROON, etc.)
 using MathClasses;
+using Raylib_cs;
 
 namespace MathClasses
 {
@@ -29,13 +30,9 @@ namespace MathClasses
         }
         public override void OnDraw()
         {
-            float rotation = (float)Math.Atan2(
-           globalTransform.m2, globalTransform.m1);
-            Raylib.Raylib.DrawTextureEx(
-            texture,
-            new Vector3(globalTransform.m7, globalTransform.m8, globalTransform.m9),
-            rotation * (float)(180.0f / Math.PI),
-            1, WHITE);
+            float rotation = (float)Math.Atan2( globalTransform.m2, globalTransform.m1);
+            DrawTextureEx(texture, new Vector2(globalTransform.m7, globalTransform.m8), rotation * (float)(180.0f / Math.PI), 
+                1, WHITE);
         }
     }
 }

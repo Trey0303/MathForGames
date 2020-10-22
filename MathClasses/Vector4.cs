@@ -125,6 +125,15 @@ namespace MathClasses
             return scaled;
         }
 
-
+        //my math to system
+        public static implicit operator System.Numerics.Vector4(Vector4 source)
+        {
+            return new System.Numerics.Vector4(source.x, source.y, source.z, source.w);
+        }
+        //system to my math
+        public static implicit operator Vector4(System.Numerics.Vector4 source)
+        {
+            return new Vector4(source.X, source.Y, source.Z, source.W);
+        }
     }
 }
