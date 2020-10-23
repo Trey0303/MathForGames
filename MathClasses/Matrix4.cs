@@ -53,17 +53,12 @@ namespace MathClasses
 
         public void Set(Matrix4 m)
         {
-            //update the values of the matrix to the values of the input matrix.
-            //Matrix3 result = new Matrix3();
-
-
-            //return result;
+            
         }
         public void Set(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9, float a10,
             float a11, float a12, float a13, float a14, float a15, float a16)
         {
             //update the values of the matrix to the values of the input matrix.
-            //Matrix3 result = new Matrix3();
             m1 = a1;
             m2 = a2;
             m3 = a3;
