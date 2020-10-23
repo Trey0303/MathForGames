@@ -54,6 +54,8 @@ namespace MathClasses
         //    Debug.Assert(BasicQuadratic(3) == 8, "BasicQuadratic broke");
         //    //c
         //    Debug.Assert(BasicLinearBlend(3, 5, 6) == 15, "BasicLinearBlend broke");
+
+            
         //}
     }
 }

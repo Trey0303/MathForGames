@@ -8,6 +8,7 @@ namespace MathClasses
 {
     public class Matrix3
     {
+        
         public readonly static Matrix3 identity = new Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1);
         public float m1, m2, m3, m4, m5, m6, m7, m8, m9;
         public Matrix3()
@@ -51,8 +52,6 @@ namespace MathClasses
         }
         public void Set(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9)
         {
-            //update the values of the matrix to the values of the input matrix.
-            //Matrix3 result = new Matrix3();
             m1 = a1;
             m2 = a2;
             m3 = a3;
@@ -62,8 +61,6 @@ namespace MathClasses
             m7 = a7;
             m8 = a8;
             m9 = a9;
-
-            //return result;
         }
 
         public void SetRotateX(double radians)
@@ -163,7 +160,7 @@ namespace MathClasses
              //m32
              lhs.m2 * rhs.m7 + lhs.m5 * rhs.m8 + lhs.m8 * rhs.m9,
              //m33
-             lhs.m3 * rhs.m7 + lhs.m6 * rhs.m8 + lhs.m9 * rhs.m9 ); ;
+             lhs.m3 * rhs.m7 + lhs.m6 * rhs.m8 + lhs.m9 * rhs.m9 ); 
         }
     }
 }

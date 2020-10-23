@@ -7,13 +7,21 @@ namespace MathClasses
     public class Colour
     {
         public UInt32 colour;
+
+        public byte red, green, blue, alpha;
+
         public Colour()
         {
             colour = 0;
         }
+            
+        
         public Colour(byte red, byte green, byte blue, byte alpha)
         {
-
+            SetRed(red);
+            SetGreen(green);
+            SetBlue(blue);
+            SetAlpha(alpha);
         }
         public byte GetRed()
         {

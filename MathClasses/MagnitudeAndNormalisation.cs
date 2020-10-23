@@ -25,6 +25,8 @@ namespace MathClasses
 
             Vector3 result = positionA + positionB;
 
+            
+
         }
     }
 }
