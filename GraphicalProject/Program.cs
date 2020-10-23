@@ -41,15 +41,15 @@ namespace GraphicalProject
             const int screenWidth = 800;
             const int screenHeight = 450;
 
-            InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
-
+            //InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+            InitWindow(screenWidth, screenHeight, "Tanks for Everything!");
             SetTargetFPS(60);
             
             //--------------------------------------------------------------------------------------
             //create new timer
-            //Timer t = new Timer();
+            //Timer timer = new Timer();
 
-            InitWindow(640, 480, "Tanks for Everything!");
+            
             game.Init();
             //Vector3 myColor = ColorToHSV(BLUE);
             //Colour rayColor = ColorFromHSV(myColor);
@@ -68,7 +68,7 @@ namespace GraphicalProject
                 //----------------------------------------------------------------------------------
                 //BeginDrawing();
 
-                ClearBackground(RAYWHITE);
+                //ClearBackground(RAYWHITE);
 
                 game.Update();
                 game.Draw();

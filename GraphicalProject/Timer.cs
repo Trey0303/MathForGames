@@ -14,11 +14,16 @@ namespace MathClasses
         private long currentTime = 0;
         private long lastTime = 0;
         private float deltaTime = 0.005f;
-        public Timer()
+        public long ElapsedMilliseconds { get; private set; }
+        public void Start()
         {
             stopwatch.Start();
         }
 
+        public void Reset()
+        {
+            stopwatch.Reset();
+        }
         public float Seconds
         {
             get { return stopwatch.ElapsedMilliseconds / 1000.0f; }
