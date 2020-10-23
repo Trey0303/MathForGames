@@ -9,10 +9,10 @@ namespace MathClasses
         public float m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15, m16;
         public Matrix4()
         {
-            m1 = 1; m2 = 0; m3 = 0; m4 = 0;
-            m5 = 0; m6 = 1; m7 = 0; m8 = 0;
-            m9 = 0; m10 = 0; m11 = 1; m12 = 0;
-            m13 = 0; m14 = 0; m15 = 0; m16 = 1;
+            m1 = 1; m5 = 0; m9 = 0; m13 = 0;
+            m2 = 0; m6 = 1; m10 = 0; m14 = 0;
+            m3 = 0; m7 = 0; m11 = 1; m15 = 0;
+            m4 = 0; m8 = 0; m12 = 0; m16 = 1;
         }
 
         public Matrix4(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9, float a10,
@@ -45,10 +45,10 @@ namespace MathClasses
 
         public void SetScaled(float x, float y, float z)
         {
-            m1 = x; m2 = 0; m3 = 0; m4 = 0;
-            m5 = 0; m6 = y; m7 = 0; m8 = 0;
-            m9 = 0; m10 = 0; m11 = z; m12 = 0;
-            m13 = 0; m14 = 0; m15 = 0; m16 = 1;
+            m1 = x; m5 = 0; m9 = 0; m13 = 0;
+            m2 = 0; m6 = y; m10 = 0; m14 = 0;
+            m3 = 0; m7 = 0; m11 = z; m15 = 0;
+            m4 = 0; m8 = 0; m12 = 0; m16 = 1;
         }
 
         public void Set(Matrix4 m)
