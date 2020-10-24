@@ -212,8 +212,11 @@ namespace UnitTestProject
             Matrix3 m3a = new Matrix3();
             m3a.SetRotateX(3.98f);
 
+            // https://www.wolframalpha.com/input/?i=%7B+++++%7B1%2C+0%2C+0%7D%2C+++++%7B0%2C+cos%283.98%29%2C+sin%283.98%29%7D%2C+++++%7B0%2C+-sin%283.98%29%2C+cos%283.98%29%7D+%7D
             Assert.IsTrue(compare(m3a,
-                new Matrix3(1, 0, 0, 0, -0.668648f, -0.743579f, 0, 0.743579f, -0.668648f)));
+                new Matrix3(1, 0, 0,
+                            0, -0.668648f, 0.743579f,
+                            0, -0.743579f, -0.668648f)));
         }
 
         [TestMethod]
@@ -222,8 +225,12 @@ namespace UnitTestProject
             Matrix4 m4a = new Matrix4();
             m4a.SetRotateX(4.5f);
 
+            // https://www.wolframalpha.com/input/?i=%7B+++++%7B1%2C+0%2C+0%2C+0%7D%2C+++++%7B0%2C+cos%284.5%29%2C+sin%284.5%29%2C+0%7D%2C+++++%7B0%2C+-sin%284.5%29%2C+cos%284.5%29%2C+0%7D%2C+%7B0%2C0%2C0%2C1%7D+%7D
             Assert.IsTrue(compare(m4a,
-                new Matrix4(1, 0, 0, 0, 0, -0.210796f, -0.97753f, 0, 0, 0.97753f, -0.210796f, 0, 0, 0, 0, 1)));
+                new Matrix4(1, 0, 0, 0,
+                            0, -0.210796f, 0.97753f, 0,
+                            0, -0.97753f, -0.210796f, 0,
+                            0, 0, 0, 1)));
         }
 
         [TestMethod]
@@ -232,8 +239,11 @@ namespace UnitTestProject
             Matrix3 m3b = new Matrix3();
             m3b.SetRotateY(1.76f);
 
+            // https://www.wolframalpha.com/input/?i=%7B+++++%7Bcos%281.76%29%2C+0%2C+-sin%281.76%29%7D%2C+++++%7B0%2C+1%2C+0%7D%2C+++++%7Bsin%281.76%29%2C+0%2C+cos%281.76%29%7D+%7D
             Assert.IsTrue(compare(m3b,
-                new Matrix3(-0.188077f, 0, -0.982154f, 0, 1, 0, 0.982154f, 0, -0.188077f)));
+                new Matrix3(-0.188077f, 0, 0.982154f,
+                            0, 1, 0,
+                            -0.982154f, 0, -0.188077f)));
         }
 
         [TestMethod]
@@ -242,8 +252,12 @@ namespace UnitTestProject
             Matrix4 m4b = new Matrix4();
             m4b.SetRotateY(-2.6f);
 
+            // https://www.wolframalpha.com/input/?i=%7B+++++%7Bcos%28-2.6%29%2C+0%2C+-sin%28-2.6%29%2C+0%7D%2C+++++%7B0%2C+1%2C+0%2C+0%7D%2C+++++%7Bsin%28-2.6%29%2C+0%2C+cos%28-2.6%29%2C+0%7D%2C+%7B0%2C0%2C0%2C1%7D+%7D
             Assert.IsTrue(compare(m4b,
-                new Matrix4(-0.856889f, 0, 0.515501f, 0, 0, 1, 0, 0, -0.515501f, 0, -0.856889f, 0, 0, 0, 0, 1)));
+                new Matrix4(-0.856889f, 0, -0.515501f, 0,
+                            0, 1, 0, 0,
+                            0.515501f, 0, -0.856889f, 0,
+                            0, 0, 0, 1)));
         }
 
         [TestMethod]
@@ -252,8 +266,11 @@ namespace UnitTestProject
             Matrix3 m3c = new Matrix3();
             m3c.SetRotateZ(9.62f);
 
+            // https://www.wolframalpha.com/input/?i=%7B+%7Bcos%289.62%29%2C+sin%289.62%29%2C+0%7D%2C+%7B-sin%289.62%29%2C+cos%289.62%29%2C+0%7D%2C+%7B0%2C+0%2C+1%7D+%7D
             Assert.IsTrue(compare(m3c,
-                new Matrix3(-0.981005f, -0.193984f, 0, 0.193984f, -0.981005f, 0, 0, 0, 1)));
+                new Matrix3(-0.981005f, 0.193984f, 0,
+                             -0.193984f, -0.981005f, 0,
+                             0, 0, 1)));
         }
 
         [TestMethod]
@@ -262,8 +279,12 @@ namespace UnitTestProject
             Matrix4 m4c = new Matrix4();
             m4c.SetRotateZ(0.72f);
 
+            // https://www.wolframalpha.com/input/?i=%7B+%7Bcos%280.72%29%2C+sin%280.72%29%2C+0%2C+0%7D%2C+%7B-sin%280.72%29%2C+cos%280.72%29%2C+0%2C+0%7D%2C+%7B0%2C+0%2C+1%2C+0%7D%2C+%7B0%2C+0%2C+0%2C+1%7D+%7D
             Assert.IsTrue(compare(m4c,
-                new Matrix4(0.751806f, 0.659385f, 0, 0, -0.659385f, 0.751806f, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)));
+                new Matrix4(0.751806f, -0.659385f, 0, 0,
+                            0.659385f, 0.751806f, 0, 0,
+                            0, 0, 1, 0,
+                            0, 0, 0, 1)));
         }
 
         [TestMethod]
