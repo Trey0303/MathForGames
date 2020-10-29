@@ -72,34 +72,36 @@ namespace MathClasses
             //update tank position and rotation
             if (IsKeyDown(KeyboardKey.KEY_A))
             {
-                tankObject.Rotate(-deltaTime);
+                tankObject.Rotate(deltaTime);
             }
             if (IsKeyDown(KeyboardKey.KEY_D))
             {
-                tankObject.Rotate(deltaTime);
+                tankObject.Rotate(-deltaTime);
             }
             if (IsKeyDown(KeyboardKey.KEY_W))
             {
                 Vector3 facing = new Vector3(
-               tankObject.LocalTransform.m4,
-               tankObject.LocalTransform.m5, 1) * deltaTime * -100;
+                    //changes which side is treated as the front of the tank
+               tankObject.LocalTransform.m1,
+               tankObject.LocalTransform.m2, 1) * deltaTime * 100;
                 tankObject.Translate(facing.x, facing.y);
             }
             if (IsKeyDown(KeyboardKey.KEY_S))
             {
                 Vector3 facing = new Vector3(
-               tankObject.LocalTransform.m4,
-               tankObject.LocalTransform.m5, 1) * deltaTime * 100;
+               //changes which side is treated as the back of the tank
+               tankObject.LocalTransform.m1,
+               tankObject.LocalTransform.m2, 1) * deltaTime * -100;
                 tankObject.Translate(facing.x, facing.y);
             }
             //update turret position and rotation
             if (IsKeyDown(KeyboardKey.KEY_Q))
             {
-                turretObject.Rotate(-deltaTime);
+                turretObject.Rotate(deltaTime);
             }
             if (IsKeyDown(KeyboardKey.KEY_E))
             {
-                turretObject.Rotate(deltaTime);
+                turretObject.Rotate(-deltaTime);
             }
             tankObject.Update(deltaTime);
 
