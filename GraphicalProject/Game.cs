@@ -33,11 +33,11 @@ namespace MathClasses
             //load tank sprites
             tankSprite.Load(@"res\tankBlue_outline.png");
             // sprite is facing the wrong way... fix that here
-            tankSprite.SetRotate(-90 * (float)(Math.PI / 180.0f));
+            tankSprite.SetRotate(90 * (float)(Math.PI / 180.0f));
             // sets an offset for the base, so it rotates around the centre
             tankSprite.SetPosition(-tankSprite.Width / 2.0f, tankSprite.Height / 2.0f);
             turretSprite.Load(@"res\barrelBlue.png");
-            turretSprite.SetRotate(-90 * (float)(Math.PI / 180.0f));
+            turretSprite.SetRotate(90 * (float)(Math.PI / 180.0f));
             // set the turret offset from the tank base
             turretSprite.SetPosition(0, turretSprite.Width / 2.0f);
             // set up the scene object hierarchy - parent the turret to the base,
@@ -81,15 +81,15 @@ namespace MathClasses
             if (IsKeyDown(KeyboardKey.KEY_W))
             {
                 Vector3 facing = new Vector3(
-               tankObject.LocalTransform.m1,
-               tankObject.LocalTransform.m2, 1) * deltaTime * 100;
+               tankObject.LocalTransform.m4,
+               tankObject.LocalTransform.m5, 1) * deltaTime * -100;
                 tankObject.Translate(facing.x, facing.y);
             }
             if (IsKeyDown(KeyboardKey.KEY_S))
             {
                 Vector3 facing = new Vector3(
-               tankObject.LocalTransform.m1,
-               tankObject.LocalTransform.m2, 1) * deltaTime * -100;
+               tankObject.LocalTransform.m4,
+               tankObject.LocalTransform.m5, 1) * deltaTime * 100;
                 tankObject.Translate(facing.x, facing.y);
             }
             //update turret position and rotation
