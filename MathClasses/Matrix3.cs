@@ -154,7 +154,7 @@ namespace MathClasses
              //m22
              lhs.m2 * rhs.m4 + lhs.m5 * rhs.m5 + lhs.m8 * rhs.m6,
              //m23
-             lhs.m7 * rhs.m4 + lhs.m8 * rhs.m5 + lhs.m9 * rhs.m6,
+             lhs.m3 * rhs.m4 + lhs.m6 * rhs.m5 + lhs.m9 * rhs.m6,
              //m31
              lhs.m1 * rhs.m7 + lhs.m4 * rhs.m8 + lhs.m7 * rhs.m9,
              //m32
