@@ -72,6 +72,7 @@ namespace GraphicalProject
 
                 game.Update();
                 game.Draw();
+
                 
                 //DrawText("time Since Start: " + GetTime().ToString("0.0"), 25, 25, 20, RED);
                 //DrawText("Delta Time: " + t.deltaTime.ToString("0.0000"), 25, 50, 20, RED);

@@ -25,13 +25,16 @@ namespace MathClasses
         }
         public void Load(string filename)
         {
+            //loads tank image
             Image img = LoadImage(filename);
             texture = LoadTextureFromImage(img);
         }
         public override void OnDraw()
         {
+            //tank rotation
             float rotation = (float)Math.Atan2( globalTransform.m2, globalTransform.m1);
-            DrawTextureEx(texture, new Vector2(globalTransform.m7, globalTransform.m8), rotation * (float)(180.0f / Math.PI), 
+            //DrawTextureEx(Texture2D texture, Vector2 position, float rotation, float scale, Color tint);
+            DrawTextureEx(texture, new Vector2(globalTransform.m7, globalTransform.m8), 0 * (float)(180.0f / Math.PI), 
                 1, WHITE);
         }
     }

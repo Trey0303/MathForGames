@@ -67,6 +67,7 @@ namespace MathClasses
                 timer -= 1;
             }
             frames++;
+            deltaTime = GetFrameTime();
 
             //update tank position and rotation
             if (IsKeyDown(KeyboardKey.KEY_A))
@@ -108,7 +109,11 @@ namespace MathClasses
         {
             BeginDrawing();
             ClearBackground(WHITE);
+            
+
+            //draw fps
             DrawText(fps.ToString(), 10, 10, 12, RED);
+            //draw tank
             tankObject.Draw();
             EndDrawing();
         }
