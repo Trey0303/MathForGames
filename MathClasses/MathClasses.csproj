@@ -50,6 +50,7 @@
     <Compile Include="Colour.cs" />
     <Compile Include="MagnitudeAndNormalisation.cs" />
     <Compile Include="MathFunctions.cs" />
+    <Compile Include="Matrix2.cs" />
     <Compile Include="Matrix3.cs" />
     <Compile Include="Matrix4.cs" />
     <Compile Include="Program.cs" />
