@@ -37,6 +37,7 @@ namespace MathClasses
             DrawTextureEx(texture, new Vector2(globalTransform.m7, globalTransform.m8), rotation * (float)(180.0f / Math.PI), 
                 1, WHITE);
             
+            
         }
     }
 }

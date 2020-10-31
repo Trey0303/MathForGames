@@ -26,6 +26,10 @@ namespace MathClasses
         private int fps = 1;
         private int frames;
         private float deltaTime = 0.005f;
+
+
+        // BULLET
+        bool bulletTrue = false;
         
         public void Init()
         {
@@ -43,12 +47,20 @@ namespace MathClasses
             turretSprite.SetRotate(90 * (float)(Math.PI / 180.0f));
             // set the turret offset from the tank base
             turretSprite.SetPosition(0, turretSprite.Width / 2.0f);
-            
+
+            //load turret sprite
+            bulletSprite.Load(@"res\bullet.png");
+            bulletSprite.SetRotate(90 * (float)(Math.PI / 180.0f));
+            // set the turret offset from the tank base
+            bulletSprite.SetPosition(turretSprite.Width + 15.0f, turretSprite.Width );
+
             // set up the scene object hierarchy - parent the turret to the base,
             // then the base to the tank sceneObject
             turretObject.AddChild(turretSprite);
             tankObject.AddChild(tankSprite);
             tankObject.AddChild(turretObject);
+
+            bulletObject.AddChild(bulletSprite);
             
 
             // having an empty object for the tank parent means we can set the
@@ -79,18 +91,31 @@ namespace MathClasses
             if (IsKeyDown(KeyboardKey.KEY_A))
             {
                 tankObject.Rotate(deltaTime);
+                if(bulletTrue == false)
+                {
+                    bulletObject.Rotate(deltaTime);
+                }
             }
             if (IsKeyDown(KeyboardKey.KEY_D))
             {
                 tankObject.Rotate(-deltaTime);
+                if (bulletTrue == false)
+                {
+                    bulletObject.Rotate(-deltaTime);
+                }
             }
             if (IsKeyDown(KeyboardKey.KEY_W))
             {
-                Vector3 facing = new Vector3(
+               Vector3 facing = new Vector3(
                     //changes which side is treated as the front of the tank
-               tankObject.LocalTransform.m1,
-               tankObject.LocalTransform.m2, 1) * deltaTime * 100;
-                tankObject.Translate(facing.x, facing.y);
+                    tankObject.LocalTransform.m1,
+                    tankObject.LocalTransform.m2, 1) * deltaTime * 100;
+               tankObject.Translate(facing.x, facing.y);
+
+                if (bulletTrue == false)
+                {
+                    bulletObject.Translate(facing.x, facing.y);
+                }
             }
             if (IsKeyDown(KeyboardKey.KEY_S))
             {
@@ -99,23 +124,76 @@ namespace MathClasses
                     tankObject.LocalTransform.m1,
                     tankObject.LocalTransform.m2, 1) * deltaTime * -100;
                 tankObject.Translate(facing.x, facing.y);
+
+                if (bulletTrue == false)
+                {
+                    bulletObject.Translate(facing.x, facing.y);
+                }
             }
             //update turret position and rotation
             if (IsKeyDown(KeyboardKey.KEY_Q))
             {
                 turretObject.Rotate(deltaTime);
+                if (bulletTrue == false)
+                {
+                    bulletObject.Rotate(deltaTime);
+                }
             }
             if (IsKeyDown(KeyboardKey.KEY_E))
             {
                 turretObject.Rotate(-deltaTime);
+                if (bulletTrue == false)
+                {
+                    bulletObject.Rotate(-deltaTime);
+                }
             }
             //fire bullet
             if (IsKeyDown(KeyboardKey.KEY_SPACE))
             {
-                
+                bulletTrue = true;
 
+                // take the forward vector of the tank - its orientation
+                // convert that into an angle
+                // apply that angle as a rotation on the bullet
+
+                // OR
+
+                // copy the rotation directly from the transform of the tank (bypass SetRotate and access the mX directly)
+
+                // TODO: rotate the bullet so it fires with the same orientation as the barrel of the tank
+
+                90 * (float)(Math.PI / 180.0f
+
+                //facing 
+                //    //changes which side is treated as the back of the tank
+                //    tankObject.LocalTransform.m1,
+                //    tankObject.LocalTransform.m2, 1);
+                //bulletObject.Translate(facing.x, facing.y);
+
+                //bulletObject.SetRotate(tankObject.);
+
+                // TODO: reposition the bullet so it fires from where it needs to start from
+                bulletObject.SetPosition(tankObject.GlobalTransform.m7, tankObject.GlobalTransform.m8);
             }
+
+            
+
             tankObject.Update(deltaTime);
+            if(bulletTrue)
+            {
+                bulletObject.Translate(bulletObject.LocalTransform.m1, bulletObject.LocalTransform.m2);
+
+
+                //TODO: eventually disable bullet and make it ready to fire
+                if (bulletObject.LocalTransform.m7 >= 800 || bulletObject.LocalTransform.m8 >= 450)
+                {
+                    bulletTrue = false;
+                }
+                else if(bulletObject.LocalTransform.m7 <= 0 || bulletObject.LocalTransform.m8 <= 0)
+                {
+                    bulletTrue = false;
+                }
+            }
 
             lastTime = currentTime;
         }
@@ -127,7 +205,13 @@ namespace MathClasses
             DrawText(fps.ToString(), 10, 10, 12, RED);
             //draw tank
             tankObject.Draw();
-            
+
+            if(bulletTrue)
+            {
+                bulletObject.Draw();
+            }
+
+
             EndDrawing();
         }
 

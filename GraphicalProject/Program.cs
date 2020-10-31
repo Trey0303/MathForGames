@@ -28,6 +28,7 @@ using static Raylib_cs.Color;   // color (RAYWHITE, MAROON, etc.)
 //using System.Numerics;          // mathematics types (Vector2, Vector3, etc.)
 using MathClasses;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GraphicalProject
 {
@@ -40,19 +41,16 @@ namespace GraphicalProject
             //--------------------------------------------------------------------------------------
             const int screenWidth = 800;
             const int screenHeight = 450;
+            
 
             //InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
             InitWindow(screenWidth, screenHeight, "Tanks for Everything!");
             SetTargetFPS(60);
             
             //--------------------------------------------------------------------------------------
-            //create new timer
-            //Timer timer = new Timer();
 
             
             game.Init();
-            //Vector3 myColor = ColorToHSV(BLUE);
-            //Colour rayColor = ColorFromHSV(myColor);
 
             // Main game loop
             while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -61,23 +59,13 @@ namespace GraphicalProject
                 //----------------------------------------------------------------------------------
                 // TODO: Update your variables here
                 //----------------------------------------------------------------------------------
-
-                //t.Update();
+                
 
                 // Draw
                 //----------------------------------------------------------------------------------
-                //BeginDrawing();
-
-                //ClearBackground(RAYWHITE);
 
                 game.Update();
                 game.Draw();
-
-                
-                //DrawText("time Since Start: " + GetTime().ToString("0.0"), 25, 25, 20, RED);
-                //DrawText("Delta Time: " + t.deltaTime.ToString("0.0000"), 25, 50, 20, RED);
-
-                //DrawText("Congrats! You created your first window!", 190, 200, 20, MAROON);
 
                 //EndDrawing();
                 //----------------------------------------------------------------------------------
