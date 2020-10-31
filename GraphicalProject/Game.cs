@@ -162,14 +162,8 @@ namespace MathClasses
 
                 // TODO: rotate the bullet so it fires with the same orientation as the barrel of the tank
 
-                90 * (float)(Math.PI / 180.0f
-
-                //facing 
-                //    //changes which side is treated as the back of the tank
-                //    tankObject.LocalTransform.m1,
-                //    tankObject.LocalTransform.m2, 1);
-                //bulletObject.Translate(facing.x, facing.y);
-
+                //bulletObject.Rotate();
+                //float bulletRotate = tankObject.GlobalTransform.m1 /2, tankObject.GlobalTransform.m2 / 2;
                 //bulletObject.SetRotate(tankObject.);
 
                 // TODO: reposition the bullet so it fires from where it needs to start from
